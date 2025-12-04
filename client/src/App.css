@@ -1,11 +1,131 @@
+
+.lexend-exa {
+  font-family: "Lexend Exa", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.lexend {
+  font-family: "Lexend", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Lexend", sans-serif;
+background: #D7CCC8;
+  display: flex;
+  justify-content: center;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
+}
+
+.hero {
+  background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+  padding: 3rem 2rem;
+  margin: -2rem -2rem 2rem; /* Bleed to edges */
   text-align: center;
+  color: white;
+  border-radius: 4px;
+}
+
+.pageTitle {
+  display: flex;
+  justify-content: center;
+  font-size: xxx-large;
+  color: white;
+  text-shadow: 6px 6px 8px rgba(0,0,0,0.2);
+}
+
+.pageDescription {
+  color: rgba(255,255,255,0.9);
+  max-width: 600px;
+  margin: 0 auto;
+    text-shadow: 6px 6px 6px rgba(0,0,0,0.2);
+
+}
+
+.strategyContainer{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+.strategyContainer > div {
+  flex: 1 1 calc(33.33% - 40px/3);
+  min-width: 250px;
+}
+
+.strategyName {
+  font-family: "Lexend Exa", sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+  display: inline-block;
 }
 
 .card {
   padding: 2em;
+  background: linear-gradient(135deg, #5DBA6F 0%, #7DC882 100%);;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  color: #080E16;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 20px;
 }
 
+.strategyName::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+ 
+}
+
+
+.strengthsList, .challengesList, .tagsList {
+  background: #EFEBE9;
+  border-radius: 6px;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.stratStrength, .stratChallenges, .stratTag {
+  display: inline-block; /* Not list item */
+  background: #e3f2fd;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin: 4px;
+}
+/* Use CSS pseudo-elements with emoji */
+.strengthsList::before {
+  content: "💪 ";
+}
+
+.challengesList::before {
+  content: "🛡️ ";
+}
+
+.tagsList::before {
+  content: "🏷️ ";
+}
+
+.ageGroup::before {
+  content: "👥 ";
+}
+
+ul {
+  list-style-type: none;
+}

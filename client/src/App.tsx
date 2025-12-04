@@ -1,24 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
 import StrategyList from './StrategyList';
 import './App.css';
+import './index.css';
 
-interface Strategy {
-  _id: string;
-  title: string;
-  description: string;
-  strengthsLeveraged: [string];
-  supportsChallenges: [string];
-  tags: [string];
-  ageGroup: string;
-}
+
 const App: React.FC = () => {
-  // const [strategies, setStrategies] = useState<Strategy[]>([]);
-  // create use state for filtering strategies
 
   return (
     <>
-      <h1>Strategy Library</h1>
+    <div className='hero'>
+      <h1 className="pageTitle">Learner Lab</h1>
+      <h2 className='pageDescription'>A strengths-first library of learning supports</h2>
+      </div>
       <StrategyList />
     </>
   );

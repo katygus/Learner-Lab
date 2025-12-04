@@ -24,8 +24,13 @@ Display Data
 [x] create client/src/Components/StrategyCard.tsx
 [x] Create StrategyCard component
 
-[ ] Fetch & display strategies from backend
-[ ] Test that data from MongoDB shows on page
+[x] Fetch & display strategies from backend
+[x] Test that data from MongoDB shows on page
+[ ] add basic styling
+
+Other Page Components
+[ ] Add title and app description
+[ ] Add filter component
 
 Search Filter
 [ ] add filter checkboxes (by various elements)
@@ -33,10 +38,11 @@ Search Filter
 [ ] or use search bar filter with keywords
 
 Fix up
-[ ] add basic styling
+
 [ ] check for bugs
 [ ] test entire flow for presentation
 [ ] add concurrently??
+[ ] replace icon on browser tab
 
 
 

@@ -47,24 +47,25 @@ const StrategyCard = ({ strategy }: StrategyCardProps) => {
     <>
       <article className='card'>
         <div className='strategyHeadContainer'>
-          <h2 className='strategyName'>Strategy: {title}</h2>
+          <h2 className='strategyName'> {title}</h2>
           <section className='strategyDesc'>{description}</section>
         </div>
-        {strengthsLeveraged.length > 0 && (
-          <ul className='stratStrengths'>
-            Strengths Leveraged:{strengthsData}
+        <div>
+        <h4 className='strengthsName'>Strengths Leveraged:</h4>
+          <ul className='strengthsList'>
+            {strengthsData}
           </ul>
-        )}
-
-        {supportsChallenges.length > 0 && (
+        
+        </div>
+         <h4 className='challengesName'>Supports Challenge Areas:</h4>
           <ul className='challengesList'>
-            Supports Challenge Areas: {challengesData}
+             {challengesData}
           </ul>
-        )}
+            <h4 className='tagsName'>Tags:</h4>
+         <ul className='tagsList'> {tagsData}</ul>
 
-        {tags.length > 0 && <ul className='tagsList'>Tags: {tagsData}</ul>}
-
-        <p className='ageGroup'>Age Group: {ageGroup}</p>
+        <h4 className='ageGroupName'>Age Group:</h4>
+        <p className='ageGroup'> {ageGroup}</p>
       </article>
     </>
   );
