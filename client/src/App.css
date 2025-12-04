@@ -1,13 +1,12 @@
-
 .lexend-exa {
-  font-family: "Lexend Exa", sans-serif;
+  font-family: 'Lexend Exa', sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
 }
 
 .lexend {
-  font-family: "Lexend", sans-serif;
+  font-family: 'Lexend', sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
@@ -15,8 +14,8 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: "Lexend", sans-serif;
-background: #D7CCC8;
+  font-family: 'Lexend', sans-serif;
+  background: #d7ccc8;
   display: flex;
   justify-content: center;
 }
@@ -28,7 +27,7 @@ background: #D7CCC8;
 }
 
 .hero {
-  background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+  background: linear-gradient(135deg, #2e7d32 0%, #4caf50 100%);
   padding: 3rem 2rem;
   margin: -2rem -2rem 2rem; /* Bleed to edges */
   text-align: center;
@@ -36,23 +35,27 @@ background: #D7CCC8;
   border-radius: 4px;
 }
 
+.icon {
+  height: 60px;
+  width: auto;
+  flex-shrink: 0;
+}
 .pageTitle {
   display: flex;
   justify-content: center;
   font-size: xxx-large;
   color: white;
-  text-shadow: 6px 6px 8px rgba(0,0,0,0.2);
+  text-shadow: 6px 6px 8px rgba(0, 0, 0, 0.2);
 }
 
 .pageDescription {
-  color: rgba(255,255,255,0.9);
+  color: rgba(255, 255, 255, 0.9);
   max-width: 600px;
   margin: 0 auto;
-    text-shadow: 6px 6px 6px rgba(0,0,0,0.2);
-
+  text-shadow: 6px 6px 6px rgba(0, 0, 0, 0.2);
 }
 
-.strategyContainer{
+.strategyContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -60,12 +63,12 @@ background: #D7CCC8;
 }
 
 .strategyContainer > div {
-  flex: 1 1 calc(33.33% - 40px/3);
+  flex: 1 1 calc(33.33% - 40px / 3);
   min-width: 250px;
 }
 
 .strategyName {
-  font-family: "Lexend Exa", sans-serif;
+  font-family: 'Lexend Exa', sans-serif;
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
   position: relative;
@@ -74,10 +77,10 @@ background: #D7CCC8;
 
 .card {
   padding: 2em;
-  background: linear-gradient(135deg, #5DBA6F 0%, #7DC882 100%);;
+  background: linear-gradient(135deg, #5dba6f 0%, #7dc882 100%);
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  color: #080E16;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  color: #080e16;
   width: 100%;
   max-width: 400px;
   margin-bottom: 20px;
@@ -90,19 +93,21 @@ background: #D7CCC8;
   left: 0;
   width: 60px;
   height: 3px;
- 
 }
 
-
-.strengthsList, .challengesList, .tagsList {
-  background: #EFEBE9;
+.strengthsList,
+.challengesList,
+.tagsList {
+  background: #efebe9;
   border-radius: 6px;
   padding: 10px;
   margin: 10px 0;
-  border: 1px solid rgba(0,0,0,0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.stratStrength, .stratChallenges, .stratTag {
+.stratStrength,
+.stratChallenges,
+.stratTag {
   display: inline-block; /* Not list item */
   background: #e3f2fd;
   padding: 4px 12px;
@@ -111,21 +116,33 @@ background: #D7CCC8;
 }
 /* Use CSS pseudo-elements with emoji */
 .strengthsList::before {
-  content: "💪 ";
+  content: '💪 ';
 }
 
 .challengesList::before {
-  content: "🛡️ ";
+  content: '🛡️ ';
 }
 
 .tagsList::before {
-  content: "🏷️ ";
+  content: '🏷️ ';
 }
 
 .ageGroup::before {
-  content: "👥 ";
+  content: '👥 ';
 }
 
 ul {
   list-style-type: none;
+}
+
+.filter-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.filter-group {
+  flex: 1;
+  min-width: 250px;
 }
