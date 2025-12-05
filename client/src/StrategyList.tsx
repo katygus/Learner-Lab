@@ -14,7 +14,7 @@ interface StrategyType {
 const StrategyList = () => {
   const [strategies, setStrategies] = useState<StrategyType[]>([]);
   const [loading, setLoading] = useState(true);
-  const [selectedValues, setSelectedValues] = useState(null);
+  
 
   useEffect(() => {
     fetch('http://localhost:5000/api/strategies')

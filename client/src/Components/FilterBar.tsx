@@ -106,9 +106,6 @@ const FilterBar = () => {
         isMulti
         />
       </div>
-      {/* <div className='challengesBar'>
-       <Select options={challengeOptions} />
-   </div> */}
     </div>
   );
 };

@@ -8,6 +8,7 @@ import FilterBar from './Components/FilterBar'
 
 const App: React.FC = () => {
 
+  // handler functions
   return (
     <>
     <div className='hero'>
