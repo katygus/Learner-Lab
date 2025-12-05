@@ -33,12 +33,17 @@ body {
   text-align: center;
   color: white;
   border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
 }
 
 .icon {
-  height: 60px;
+  height: 90px;
   width: auto;
   flex-shrink: 0;
+  display: flex;
 }
 .pageTitle {
   display: flex;
