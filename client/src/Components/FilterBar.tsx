@@ -80,7 +80,7 @@ const FilterBar = () => {
   return (
     <div className='filter-container'>
       <div className='filter-group'>
-        <label>Strengths</label>
+        <label><strong>Strengths</strong></label>
         <Select
           options={strengthsOptions}
           value={selectedStrengths}
@@ -89,7 +89,7 @@ const FilterBar = () => {
         />
         <br />
         <br />
-        <label>Challenges</label>
+        <label><strong>Challenges</strong></label>
         <Select
           options={challengeOptions}
           value={selectedChallenges}
@@ -98,7 +98,7 @@ const FilterBar = () => {
         />
         <br />
         <br />
-        <label>Tags</label>
+        <label><strong>Tags</strong></label>
         <Select
         options={tagOptions}
         value={selectedTags}
