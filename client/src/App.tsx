@@ -8,6 +8,7 @@ import FilterBar from './Components/FilterBar'
 
 const App: React.FC = () => {
 
+  
   // handler functions
   return (
     <>
@@ -18,7 +19,9 @@ const App: React.FC = () => {
       </div>
       <h3>Filter Results</h3>
       < FilterBar />,
-      < StrategyList />
+      < StrategyList 
+        
+      />
     </>
   );
 };

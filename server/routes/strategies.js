@@ -1,6 +1,7 @@
 import express from "express";
 import Strategy from "../models/Strategy.js";
 import strategyController from "../controllers/strategyController.js";
+import getFilteredStrategies from "../controllers/strategyController.js";
 
 const router = express.Router();
 
@@ -12,7 +13,8 @@ router.get('/', strategyController.getStrategies, (req, res) => res.status(200).
 
 //POST to create strategy
 
-// GET /:id to get a single strategy
+// GET filtered strategies
+
 
 // PUT /:id to update a strategy
 

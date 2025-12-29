@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import StrategyCard from './Components/StrategyCard';
-import AsyncSelect from 'react-select/async';
+
 
 interface StrategyType {
   _id?: string;
@@ -13,25 +13,25 @@ interface StrategyType {
 }
 const StrategyList = () => {
   const [strategies, setStrategies] = useState<StrategyType[]>([]);
-  const [loading, setLoading] = useState(true);
   
+
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/strategies')
-      .then((res) => res.json())
-      .then((data) => {
-        setStrategies(data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error('Error fetching strategies:', error);
-      });
-  }, []);
+    async function getStrategies() {
+    const response = await fetch('http://localhost:5000/api/strategies');
+    if (!response.ok) {
+      const message = `An error occurred: ${response.statusText}`;
+      console.error(message);
+      return;
+    }
+    const strategies = await response.json();
+    setStrategies(strategies);
+  }
+  getStrategies();
+  return;
+  }, [strategies.length]);
 
-  
-  if (loading) return <div>Loading strategies...</div>;
-  
-    
+
   
 
   return (
