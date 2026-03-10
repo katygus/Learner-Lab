@@ -1,16 +1,9 @@
 import { useState, useEffect } from 'react';
 import StrategyCard from './Components/StrategyCard';
+import type { StrategyType } from './types/types';
 
 
-interface StrategyType {
-  _id?: string;
-  title: string;
-  description: string;
-  strengthsLeveraged: string[];
-  supportsChallenges: string[];
-  ageGroup: string;
-  tags: string[];
-}
+
 const StrategyList = () => {
   const [strategies, setStrategies] = useState<StrategyType[]>([]);
   
@@ -18,7 +11,7 @@ const StrategyList = () => {
 
   useEffect(() => {
     async function getStrategies() {
-    const response = await fetch('http://localhost:5000/api/strategies');
+    const response: Response = await fetch('http://localhost:5000/api/strategies');
     if (!response.ok) {
       const message = `An error occurred: ${response.statusText}`;
       console.error(message);

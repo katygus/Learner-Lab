@@ -1,7 +1,14 @@
 import Select from 'react-select';
-import { useState } from 'react';
 import '../App.css';
 
+interface FilterBarProps {
+  selectedStrengths: Array<{value: string, label: string}>;
+  setSelectedStrengths: (value: Array<{value: string, label: string}>) => void;
+  selectedChallenges: Array<{value: string, label: string}>;
+  setSelectedChallenges: (value: Array<{value: string, label: string}>) => void;
+   selectedTags: Array<{value: string, label: string}>;
+  setSelectedTags: (value: Array<{value: string, label: string}>) => void;
+}
 const strengthsOptions = [
   { value: 'Hyperfocus', label: 'Hyperfocus' },
   { value: 'Sustained Attention', label: 'Sustained Attention' },
@@ -72,10 +79,8 @@ const tagOptions = [
   { value: 'Communication', label: 'Communication' },
 ];
 
-const FilterBar = () => {
-  const [selectedStrengths, setSelectedStrengths] = useState([]);
-  const [selectedChallenges, setSelectedChallenges] = useState([]);
-  const [selectedTags, setSelectedTags] = useState([]);
+const FilterBar = ({selectedStrengths, setSelectedStrengths, selectedChallenges, setSelectedChallenges, selectedTags, setSelectedTags}: FilterBarProps) => {
+ 
 
   return (
     <div className='filter-container'>
