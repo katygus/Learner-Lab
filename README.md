@@ -1,105 +1,186 @@
-##TO DO
+# Learner Lab
 
-Server
-[x] Start with npm run dev in server folder
-[x] Check for message saying it's running (make sure without errors)
-[x] add error handling middleware at end of server.js
+> A strengths-first strategy library for educators — searchable, filterable, and built on the belief that students thrive when we start with what they do *well*.
 
-MongoDB Connection
-[x] Create server/models/Strategy.js schema
-[x] Import/use in server.js
-[x] Test -> restart server and check for Connected to MongoDB message
+<!-- Add a screenshot or GIF of the app here -->
+<!-- ![Learner Lab in action](./assets/demo.gif) -->
 
-Create API Routes
-[x] create GET /api/strategies route in server/routes/strategies.js
-[x] test routes in Postman http://localhost:5000/api/strategies -> does it return seed data from MOngoDB?
-[x] define route handlers in server.js
+---
 
+## Table of Contents
 
-Frontend Setup
-[x] in client, make sure React runs -> npm run dev
-[x] shows default page
+- [Description](#description)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Environment Variables](#environment-variables)
+  - [Running the Application](#running-the-application)
+- [Usage](#usage)
+- [Roadmap](#roadmap)
+- [Open Source & Contributing](#open-source--contributing)
+- [License](#license)
+- [Author](#author)
 
-Display Data
-[x] create client/src/Components/StrategyCard.tsx
-[x] Create StrategyCard component
+---
 
-[x] Fetch & display strategies from backend
-[x] Test that data from MongoDB shows on page
-[ ] add basic styling
+## Description
 
-Other Page Components
-[x] Add title and app description
-[x] Add filter component
+Most special education support is organized around deficits — where a student *struggles*. Research in Strengths Based Learning approaches tells a different story: students make the greatest gains when instruction leverages their existing strengths, showing improved engagement, confidence, and achievement.
 
-Search Filter
-[ ] Think about how to use this (in App.tsx):
- - onFilterChange is a prop passed from parent component (App) to child (FilterBar)
- - filters is a prop passed from parent (App) to child (StrategyList)
-I think that means each prop needs to be defined in App.tsx ->
-    * handleFilterChange
-    * activeFilters
-  <FilterBar 
-    onFilterChange={handleFilterChange} 
-  />
-  <StrategyList 
-    filters={activeFilters} 
-  />
+**Learner Lab** is a searchable, filterable database of teaching strategies organized by student strengths, challenge areas, and learning profiles. Educators can quickly find approaches tailored to how their students actually learn — not just what they struggle with.
 
+Built as a full-stack solo project by a former educator, Learner Lab is directly informed by classroom experience and a deep investment in equitable, strengths-based pedagogy.
 
-Database filtering happens in backend - frontend just sends selected values
+---
 
-Your API: GET /api/strategies?strengths=Visual+Thinking&challenges=Attention
+## Features
 
-const [selectedStrengths, setSelectedStrengths] = useState([]);
-const [selectedChallenges, setSelectedChallenges] = useState([]);
-const [selectedTags, setSelectedTags] = useState([]);
+| Feature | Status |
+|---|---|
+| Browse full strategy library | ✅ |
+| Multi-select filter UI (react-select) | ✅ |
+| Filters connected to backend / actually filtering results | ⏳ |
+| Dedicated instructions page with examples | 🙏
+| User authentication (sign up / log in) | 🙏 |
+| Save favorite strategies | 🙏 |
+| User-submitted strategy cards | 🙏 |
+| Student profiles | 🙏 |
+| Hover/click card reveal interactions | 🙏 |
 
-// When any selection changes, combine and send to parent
-    // FIGURE OUT what useEffect is doing here -> how does it relate to what it does when rendering ALL the cards?
-    
-useEffect(() => {
-  onFilterChange({
-    strengths: selectedStrengths.map(s => s.value),
-    challenges: selectedChallenges.map(c => c.value),
-    tags: selectedTags.map(t => t.value)
-  });
-}, [selectedStrengths, selectedChallenges, selectedTags]);
+- ✅ Complete
+- ⏳ In progress
+- 🙏 Looking for contributors
 
-6. Backend API Update:
-Backend needs to accept query params:
-// In routes/strategies.js
-router.get('/', async (req, res) => {
-  const { strengths, challenges, tags } = req.query;
-  // Build MongoDB query from these
-});
+---
 
-Quickest Implementation:
-Install react-select
+## Tech Stack
 
-Create 3 Select components in FilterBar
+**Frontend:** React, TypeScript, Vite, react-select  
+**Backend:** Node.js, Express, TypeScript  
+**Database:** MongoDB Atlas, Mongoose  
 
-Pass selected values to parent (App.tsx)
+---
 
-Update StrategyList to accept filters prop
+## Getting Started
 
-Modify backend to filter by query params
+### Prerequisites
 
-Start with just ONE filter (e.g., tags) to get it working, then add the others.
+- Node.js `>=18.0.0`
+- A [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) account and cluster
 
-##STRETCHES
-Create New Strategies
-[ ] create StrategyForm component
-[ ] POST new strategy to backend
-[ ] update UI after success
-[ ] test that new strategy appears on update
+### Installation
 
-[ ] add additional server routes for UPDATE and DELETE
+Clone the repository and install dependencies for the root, client, and server in one command:
 
+```bash
+git clone https://github.com/katygus/Learner-Lab.git
+cd Learner-Lab
+npm run install-all
+```
 
-WHAT DOES WHAT frontend
-App.tsx -> fetches from API
+### Environment Variables
 
-StrategyList.tsx -> Maps through all strategies and passes one to each card
+Create a `.env` file inside the `server/` directory:
 
-StrategyCard.tsx -> Renders each section with strategy data
+```bash
+cp server/.env.example server/.env
+```
+
+Then open `server/.env` and fill in your values:
+
+```
+MONGO_URI=your_mongodb_connection_string
+```
+
+You can find your connection string in MongoDB Atlas under **Database → Connect → Connect your application**. Make sure to include your database name in the URI:
+
+```
+mongodb+srv://username:password@cluster.mongodb.net/your-database-name?appName=Cluster0
+```
+
+### Running the Application
+
+From the project root, run both the client and server concurrently:
+
+```bash
+npm run dev
+```
+
+The client will be available at `http://localhost:5173` and the server at `http://localhost:5000`.
+
+To run them separately:
+
+```bash
+npm run client   # frontend only
+npm run server   # backend only
+```
+
+---
+
+## Usage
+
+1. **Browse strategies** — The main view displays all strategy cards in the library.
+2. **Filter by strengths** — Use the multi-select filter bars to narrow results by student strength areas, challenge areas, neurodiversity profiles, teaching style, or interest area.
+3. **Explore a strategy** — Each card includes a description of the approach, its intended use, and relevant tags.
+
+> Screenshot / GIF walkthrough coming soon.
+
+---
+
+## Roadmap
+
+See the [Features](#features) table above for planned additions. The immediate priority is connecting the multi-select filter UI to live backend queries. User authentication will unlock several subsequent features: saving favorites, submitting strategy cards, and building student profiles.
+
+---
+
+## Open Source & Contributing
+
+Learner Lab is open source and welcomes contributions — especially from educators, developers with special education backgrounds, or anyone who wants to help make this tool more useful for teachers.
+
+### Running in Dev Mode
+
+Follow the [Getting Started](#getting-started) instructions above. The `npm run dev` command runs both client and server with hot reloading via Vite and nodemon.
+
+### Contribution Guidelines
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/your-feature-name`
+3. Commit your changes with a descriptive message
+4. Push to your fork: `git push origin feature/your-feature-name`
+5. Open a Pull Request against the `main` branch
+
+Please open an issue first if you're planning a significant change, so we can discuss the approach before you invest time building it.
+
+### Areas Where Help Is Especially Welcome
+
+See the 🙏 items in the [Features](#features) table. If you're an educator and want to contribute strategy content rather than code, feel free to open an issue — content contributions are just as valuable.
+
+---
+
+## Changelog
+
+### v1.0.0 — Current
+- Strategy library with full card display
+- Multi-select filter UI using react-select (strength, challenge area, neurodiversity, teaching style, interest area)
+- Full-stack architecture: React frontend, Express/Node backend, MongoDB Atlas database
+
+---
+
+## License
+
+[MIT](./LICENSE)
+
+---
+
+## Author
+
+**Katy Wells**  
+[GitHub @katygus](https://github.com/katygus) · [LinkedIn](https://www.linkedin.com/in/katy-wells)
+
+<!-- Add your portfolio website link here when ready -->
+
+---
+
+*Built with 💙 by a teacher who believes every student has something to build on.*
